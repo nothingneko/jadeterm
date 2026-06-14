@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>sh.jaiden.Jadeterm</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Jadeterm</name>
+  <summary>Terminal made by Catgirls</summary>
+  <description>
+    <p>
+      jadeterm is a terminal
+
+      it runs on your computer, or in a flatpak
+
+      it looks kinda in-place on your desktop, the plasma titlebar appears on plasma, it's libadw though
+
+      jadeterm isn't built by nazis, isn't "container native", isn't ugly as piss, doesn't have a million config options, etc
+
+      and i only used claude a little bit.
+
+      it's seriously just a terminal
+    </p>
+  </description>
+  <developer id="sh.jaiden">
+    <name>Jaiden Riordan</name>
+  </developer>
+  <url type="homepage">https://jaiden.sh/jadeterm</url>
+  <launchable type="desktop-id">sh.jaiden.Jadeterm.desktop</launchable>
+  <provides>
+    <binary>jadeterm</binary>
+  </provides>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.1" date="2026-06-13"/>
+  </releases>
+</component>

@@ -1,0 +1,23 @@
+# derived from libadwaita's _colors.scss and _palette.scss:
+# https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/src/stylesheet/_colors.scss
+# https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/src/stylesheet/_palette.scss
+# Adwaita has no cyan, so the cyan slot uses blue_2
+name: "Adwaita"
+author: "GNOME"
+palette:
+  base00: "#fafafb"
+  base01: "#ebebeb"
+  base02: "#deddda"
+  base03: "#9a9996"
+  base04: "#77767b"
+  base05: "#333336"
+  base06: "#241f31"
+  base07: "#000000"
+  base08: "#c01c28"
+  base09: "#e66100"
+  base0A: "#e5a50a"
+  base0B: "#26a269"
+  base0C: "#3584e4"
+  base0D: "#1c71d8"
+  base0E: "#813d9c"
+  base0F: "#865e3c"

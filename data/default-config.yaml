@@ -1,0 +1,21 @@
+# these are the defaults
+# press ctrl+,(comma) to edit the user config
+# see jaiden.sh/jadeterm for every key
+#
+#
+# missing keys fall back to the values here
+
+integration:
+  break-claude: disabled
+  prefer-dark: yes
+
+theme:
+  light: breeze
+  dark: breeze-dark
+
+keyboard:
+  new-tab: ctrl+shift+t
+  close-tab: ctrl+shift+w
+  quit-app: super+q
+
+startup: null

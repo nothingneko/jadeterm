@@ -1,0 +1,21 @@
+# derived from KDE Plasma's BreezeLight color scheme:
+# https://invent.kde.org/plasma/breeze/-/blob/master/colors/BreezeLight.colors
+name: "Breeze"
+author: "KDE"
+palette:
+  base00: "#eff0f1"
+  base01: "#dfe0e1"
+  base02: "#bdc3c7"
+  base03: "#7f8c8d"
+  base04: "#4d5359"
+  base05: "#232629"
+  base06: "#1a1d1f"
+  base07: "#000000"
+  base08: "#da4453"
+  base09: "#f67400"
+  base0A: "#c08800"
+  base0B: "#27ae60"
+  base0C: "#16a085"
+  base0D: "#3daee9"
+  base0E: "#8e44ad"
+  base0F: "#c0392b"

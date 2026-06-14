@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Jadeterm
+Comment=Terminal made by Catgirls
+Exec=jadeterm
+Icon=sh.jaiden.Jadeterm
+Terminal=false
+Type=Application
+Categories=System;TerminalEmulator;
+StartupNotify=true
+StartupWMClass=Jadeterm

@@ -1,0 +1,74 @@
+app-id: sh.jaiden.Jadeterm
+runtime: org.gnome.Platform
+runtime-version: "50"
+sdk: org.gnome.Sdk
+command: jadeterm
+
+finish-args:
+  - --device=dri
+  - --share=ipc
+  - --socket=wayland
+  - --socket=session-bus
+  - --talk-name=org.freedesktop.Flatpak
+  - --talk-name=org.freedesktop.Notifications
+
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /share/doc
+  - /share/gtk-doc
+  - /share/man
+  - /share/pkgconfig
+  - "*.la"
+  - "*.a"
+
+modules:
+  - python3-pyyaml.json
+
+  # this is exactly what console does
+  # because gnome removed vte from the platform
+  - name: fast_float
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/fastfloat/fast_float.git
+        tag: v6.1.6
+
+  - name: simdutf
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_CXX_STANDARD=20
+      - -DCMAKE_CXX_VISIBILITY_PRESET=hidden
+      - -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE
+      - -DCMAKE_VISIBILITY_INLINES_HIDDEN=TRUE
+    sources:
+      - type: git
+        url: https://github.com/simdutf/simdutf
+        tag: v6.4.0
+
+  - name: vte
+    buildsystem: meson
+    config-opts:
+      - -Dgir=true
+      - -Dvapi=false
+      - -Dgtk3=false
+      - -Dgtk4=true
+      - -Ddocs=false
+    sources:
+      - type: archive
+        url: https://gitlab.gnome.org/GNOME/vte/-/archive/0.84.0/vte-0.84.0.tar.gz
+        sha256: a7f3a0ea17554ca643729c3502d3bfc76b20b53c97e81ddf6e099b16486df7e2
+
+  - name: jadeterm
+    buildsystem: simple
+    build-commands:
+      - pip3 install --no-build-isolation --no-deps --prefix=/app --no-warn-script-location .
+      - install -d /app/share/jadeterm/themes
+      - cp data/themes/*.yaml /app/share/jadeterm/themes/
+      - install -Dm644 data/default-config.yaml /app/share/jadeterm/default-config.yaml
+      - install -Dm644 data/sh.jaiden.Jadeterm.desktop /app/share/applications/sh.jaiden.Jadeterm.desktop
+      - install -Dm644 data/sh.jaiden.Jadeterm.metainfo.xml /app/share/metainfo/sh.jaiden.Jadeterm.metainfo.xml
+      - install -Dm644 data/sh.jaiden.Jadeterm.svg /app/share/icons/hicolor/scalable/apps/sh.jaiden.Jadeterm.svg
+    sources:
+      - type: dir
+        path: .

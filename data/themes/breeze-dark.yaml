@@ -1,0 +1,21 @@
+# derived from KDE Konsole's canonical Breeze.colorscheme:
+# https://invent.kde.org/utilities/konsole/-/blob/master/data/color-schemes/Breeze.colorscheme
+name: "Breeze Dark"
+author: "KDE"
+palette:
+  base00: "#232627"
+  base01: "#31363b"
+  base02: "#4d5359"
+  base03: "#7f8c8d"
+  base04: "#bdc3c7"
+  base05: "#fcfcfc"
+  base06: "#eff0f1"
+  base07: "#ffffff"
+  base08: "#ed1515"
+  base09: "#f67400"
+  base0A: "#fdbc4b"
+  base0B: "#11d116"
+  base0C: "#1abc9c"
+  base0D: "#1d99f3"
+  base0E: "#9b59b6"
+  base0F: "#c0392b"
