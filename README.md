@@ -2,6 +2,8 @@
 # jadeterm
 bullshit free terminal built by catgirls
 
+i have done insane shit since i wrote this readme and i will get to fixing it in a bit, it's mostly up to date
+
 ## what does "bullshit free" mean?
 jadeterm isn't built by nazis, isn't "container native", isn't ugly as piss, 
 doesn't have a million config options, isn't built by nazis, 
@@ -20,7 +22,7 @@ it's seriously just a terminal
 
 ## so is this suckless?
 
-no, see "[jadeite] isn't built by nazis"
+no, see "[jadeterm] isn't built by nazis"
 
 ## can i configure it?
 
@@ -50,7 +52,7 @@ keyboard:
 
 - `theme` is what's on the tin.
 
-- keyboard shortcuts, there's only three of them, just type what they are, super is the windows key, alt is alt.
+- keyboard shortcuts, there's only five of them, you cannot configure two of them, just type what they are, super is the windows key, alt is alt.
 
 - the terminal bell is delivered through standardized notifications, 
 you can turn it off by revoking the notification permission. if for some reason you can't revoke the notification permission, get with the times.
