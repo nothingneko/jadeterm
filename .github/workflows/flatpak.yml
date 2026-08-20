@@ -1,0 +1,31 @@
+name: flatpak
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install flatpak
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y flatpak flatpak-builder
+          flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+      - name: build
+        run: |
+          flatpak-builder --user --force-clean --install-deps-from=flathub \
+            --repo=repo build sh.jaiden.Jadeterm.yml
+
+      - name: bundle
+        run: flatpak build-bundle repo jadeterm.flatpak sh.jaiden.Jadeterm
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jadeterm-x86_64
+          path: jadeterm.flatpak
