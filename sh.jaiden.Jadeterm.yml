@@ -32,6 +32,8 @@ modules:
   # because gnome removed vte from the platform
   - name: fast_float
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_INSTALL_LIBDIR=lib
     sources:
       - type: git
         url: https://github.com/fastfloat/fast_float.git
@@ -40,6 +42,7 @@ modules:
   - name: simdutf
     buildsystem: cmake-ninja
     config-opts:
+      - -DCMAKE_INSTALL_LIBDIR=lib
       - -DCMAKE_CXX_STANDARD=20
       - -DCMAKE_CXX_VISIBILITY_PRESET=hidden
       - -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE
@@ -52,6 +55,9 @@ modules:
   - name: vte
     buildsystem: meson
     config-opts:
+      # older flatpak-builder doesn't pass this, and the sdk's meson defaults to
+      # lib64, which isn't on GI_TYPELIB_PATH or LD_LIBRARY_PATH inside the sandbox
+      - --libdir=lib
       - -Dgir=true
       - -Dvapi=false
       - -Dgtk3=false
