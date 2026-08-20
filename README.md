@@ -135,3 +135,14 @@ you'll see
 ..-*+.....-+.....**-....=+..*......**.....+*+.....:*......+***.........**........+*+.....+:.....**:...-**:..
 ********+**-...**********=..*:****+:....++******+**=.......**.......:******+...***********...:*****+-...****
 ```
+### how does jadeterm detect my forge and repo data?
+it reads the .git files, simple as that.
+
+#### why does jadeterm do it like that?
+because i like it like that.
+
+### how do i turn off torture mode?
+try submitting your commands to a specialist venue.
+
+### how do i write a theme?
+uhhhhh next question.
