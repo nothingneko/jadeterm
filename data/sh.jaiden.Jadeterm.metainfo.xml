@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <name>Jadeterm</name>
+  <icon type="stock">sh.jaiden.Jadeterm</icon>
   <summary>Terminal made by Catgirls</summary>
   <description>
     <p>
@@ -30,6 +31,7 @@
   </provides>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="1.0.0" date="2026-08-20"/>
     <release version="0.1" date="2026-06-13"/>
   </releases>
 </component>
