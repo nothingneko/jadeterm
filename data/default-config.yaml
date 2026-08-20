@@ -19,3 +19,7 @@ keyboard:
   quit-app: super+q
 
 startup: null
+
+# you'll see
+torture: disabled
+torture-paywall-every: 5

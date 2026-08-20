@@ -5,6 +5,9 @@ sdk: org.gnome.Sdk
 command: jadeterm
 
 finish-args:
+  # read-only, and only so the tab labels can find .git/config
+  # the shell already runs on the host through org.freedesktop.Flatpak, so this grants nothing new
+  - --filesystem=host:ro
   - --device=dri
   - --share=ipc
   - --socket=wayland
@@ -65,6 +68,8 @@ modules:
       - pip3 install --no-build-isolation --no-deps --prefix=/app --no-warn-script-location .
       - install -d /app/share/jadeterm/themes
       - cp data/themes/*.yaml /app/share/jadeterm/themes/
+      - install -d /app/share/jadeterm/icons
+      - cp data/icons/*.svg /app/share/jadeterm/icons/
       - install -Dm644 data/default-config.yaml /app/share/jadeterm/default-config.yaml
       - install -Dm644 data/sh.jaiden.Jadeterm.desktop /app/share/applications/sh.jaiden.Jadeterm.desktop
       - install -Dm644 data/sh.jaiden.Jadeterm.metainfo.xml /app/share/metainfo/sh.jaiden.Jadeterm.metainfo.xml

@@ -54,11 +54,15 @@ def _validate(value, default, path):
             raise ConfigError(
                 f"'{path}' must be a boolean (yes/no/true/false), i have {_type_name(value)}"
             )
+    elif isinstance(default, int):
+        # after the boolean branch on purpose, bool is an int as far as python cares
+        if not isinstance(value, int) or isinstance(value, bool):
+            raise ConfigError(f"'{path}' must be a number, i have {_type_name(value)}")
     elif isinstance(default, str):
         if not isinstance(value, str):
             raise ConfigError(f"'{path}' must be a string, i have {_type_name(value)}")
     elif default is None:
-        # (e.g. startup) accept a string or nothing
+        # accept a string or nothing
         if not isinstance(value, str):
             raise ConfigError(
                 f"'{path}' must be a string or nothing, i have {_type_name(value)}"
@@ -83,7 +87,7 @@ def _load_defaults():
     # if the default conf is missing this happens, some packager somewhere fucked up
     if not os.path.exists(_DEFAULTS_PATH):
         raise FileNotFoundError(
-            f"bundled default config missing: {_DEFAULTS_PATH} ask the package maintainer for your distro to fix this, or get with the times and use the flatpak, unless you deleted it, then put it back!"
+            f"bundled default config missing: {_DEFAULTS_PATH} ask the package maintainer for your distro to fix this, or get with the times and use the flatpak, unless you deleted the config, then put it back!"
         )
     with open(_DEFAULTS_PATH) as f:
         return yaml.safe_load(f) or {}
@@ -152,6 +156,15 @@ class Config:
     @property
     def startup(self):
         return self._data.get("startup")
+
+    @property
+    def torture(self):
+        return _truthy(self._data.get("torture"))
+
+    @property
+    def torture_paywall_every(self):
+        value = self._data.get("torture-paywall-every")
+        return value if isinstance(value, int) and value > 0 else 5
 
     def keyboard(self, action):
         return self._data["keyboard"].get(action)

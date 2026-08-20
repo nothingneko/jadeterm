@@ -13,6 +13,7 @@ _USER_THEME_DIR = os.path.join(user_config_dir(), "themes")
 
 # yes my themes are yaml, no you cannot kill me in a backalley
 # base16 slot → VTE 16-color palette index
+# update so please kill me in a backalley for this it's miserable
 _PALETTE_MAP = [
     "base00",
     "base08",

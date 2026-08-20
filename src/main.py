@@ -6,7 +6,7 @@ import gi
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 gi.require_version("Vte", "3.91")
-from gi.repository import Adw, Gio
+from gi.repository import Adw, Gio, GLib
 
 from .bell import Bell
 from .config import Config, parse_accel
@@ -36,6 +36,15 @@ class Application(Adw.Application):
 
         if accel := parse_accel(self._config.keyboard("quit-app")):
             self.set_accels_for_action("app.quit", [accel])
+
+        # this is where a notif goes
+        focus_action = Gio.SimpleAction.new("focus-tab", GLib.VariantType.new("s"))
+        focus_action.connect("activate", self._on_focus_tab)
+        self.add_action(focus_action)
+
+    def _on_focus_tab(self, _action, target):
+        if self._window and target:
+            self._window.focus_tab(target.get_string())
 
     def do_activate(self):
         if self._window:
